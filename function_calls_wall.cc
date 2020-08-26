@@ -19,12 +19,12 @@ int main() {
 
   std_clk::time_point start, end;
   size_t size = udist(engine);
-  long j;
+  long j = 0;
   std::cout << "Start loop with function calls" << std::endl;
   start = std_clk::now();
   for (size_t i = 0; i < size; ++i)
     j = foo(i);
-  std::cout << "Ran " << j << "times" << std::endl; 
+  std::cout << "Ran " << j << "times" << std::endl;
   end = std_clk::now();
 
   std_duration time_span = duration_cast<std_duration>(end - start);
@@ -43,6 +43,7 @@ int main() {
   end = std_clk::now();
 
   time_span = duration_cast<std_duration>(end - start);
-  std::cout << "No fcalls running time -> " << time_span.count() << " seconds" << std::endl;
+  std::cout << "No fcalls running time -> " << time_span.count() << " seconds"
+            << std::endl;
   std::cout << "Ran " << j << "times" << std::endl;
 }
